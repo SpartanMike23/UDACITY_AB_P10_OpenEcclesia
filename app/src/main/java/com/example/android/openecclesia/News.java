@@ -32,39 +32,20 @@ public class News {
         return mTitle;
     }
 
-    public void setTitle(String mTitle) {
-        this.mTitle = mTitle;
-    }
-
     public String getSectionName() {
         return mSectionName;
-    }
-
-    public void setSectionName(String mSectionName) {
-        this.mSectionName = mSectionName;
     }
 
     public String getURL() {
         return mURL;
     }
 
-    public void setURL(String mURL) {
-        this.mURL = mURL;
-    }
-
     public String getDate() {
         return mDate;
-    }
-
-    public void setDate(String mDate) {
-        this.mDate = mDate;
     }
 
     public String getNewsType() {
         return mNewsType;
     }
 
-    public void setNewsType(String mNewsType) {
-        this.mNewsType = mNewsType;
-    }
 }

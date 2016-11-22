@@ -16,6 +16,14 @@ public class NewsAdapter extends ArrayAdapter<News> {
 
     private static final String LOCATOR_SEPARATOR = "T";
 
+    private TextView titleView;
+
+    private TextView sectionView;
+
+    private TextView webPubView;
+
+    private TextView typeView;
+
     public NewsAdapter(Context context, ArrayList<News> news) {
         //This creates the internal storage for the context and the list
         //second argument calls for a value if using a single TextView
@@ -34,10 +42,10 @@ public class NewsAdapter extends ArrayAdapter<News> {
                     R.layout.items_list,parent,false);
         }
 
-        TextView titleView = (TextView) listItemView.findViewById(R.id.webTitleView);
-        TextView sectionView = (TextView) listItemView.findViewById(R.id.sectionView);
-        TextView webPubView = (TextView) listItemView.findViewById(R.id.webPubView);
-        TextView typeView = (TextView) listItemView.findViewById(R.id.typeView);
+        titleView = (TextView) listItemView.findViewById(R.id.webTitleView);
+        sectionView = (TextView) listItemView.findViewById(R.id.sectionView);
+        webPubView = (TextView) listItemView.findViewById(R.id.webPubView);
+        typeView = (TextView) listItemView.findViewById(R.id.typeView);
 
         String originalDate = currentNews.getDate();
         String readableDate;

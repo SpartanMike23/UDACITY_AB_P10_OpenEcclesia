@@ -18,7 +18,6 @@ public class SettingsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.settings_activity);
 
-
     }
 
     public static class NewsPreferenceFragment extends PreferenceFragment implements Preference.OnPreferenceChangeListener {

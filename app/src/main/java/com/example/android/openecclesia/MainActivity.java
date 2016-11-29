@@ -44,7 +44,6 @@ public class MainActivity extends AppCompatActivity
 
     //URL variable
     private final static String NEWS_URL = "http://content.guardianapis.com/search?";
-//    debate&tag=politics/politics&from-date=2014-01-01&api-key=test";
 
     private static NewsAdapter newsAdapter;
     private static ListView newsList;
@@ -62,6 +61,7 @@ public class MainActivity extends AppCompatActivity
     private static TextView noInternet;
 
     //determines status network
+    //return active network if one exist AND is connected
     private boolean isNetworkAvailable() {
         ConnectivityManager connectivityManager
                 = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -84,6 +84,13 @@ public class MainActivity extends AppCompatActivity
         newsList.setEmptyView(emptyView);
         newsList.setAdapter(newsAdapter);
 
+        /**
+         * if network is available
+         * load loaderManager
+         * else
+         * set emptyView, SpinnerBar to Gone
+         * set text to No internet.
+         */
         if (isNetworkAvailable()) {
             LoaderManager loaderManager = getLoaderManager();
             loaderManager.initLoader(NEWS_LOADER_ID, null, this);
@@ -92,7 +99,6 @@ public class MainActivity extends AppCompatActivity
             spinnerBar.setVisibility(View.GONE);
             noInternet.setText(R.string.no_internet);
         }
-
 
         newsList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -160,6 +166,7 @@ public class MainActivity extends AppCompatActivity
     public void onLoaderReset(Loader<List<News>> loader) {
         newsAdapter.clear();
     }
+
     // Create an empty ArrayList that we can start adding earthquakes to
     public static List<News> extractFromJson(String newsJson) {
         List<News> news = new ArrayList<>();
@@ -211,7 +218,6 @@ public class MainActivity extends AppCompatActivity
      */
     private static String makeHttpRequest(URL url) throws IOException {
         String jsonResponse = "";
-
         // If the URL is null, then return early.
         if (url == null) {
             return jsonResponse;
